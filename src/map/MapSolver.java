@@ -13,8 +13,6 @@ public class MapSolver {
 
 	static boolean solution = false;
 
-	static int steps = 0;
-
 	static int dir = 1;
 
 	ArrayList<Block> visited_block = new ArrayList<Block>();
@@ -41,8 +39,8 @@ public class MapSolver {
 		}
 
 		if (b instanceof GoalBlock) {
-			System.out.println(steps);
-
+			path.add(b);
+			System.out.println(path.size());
 			solution = true;
 			return;
 
@@ -57,8 +55,6 @@ public class MapSolver {
 		path.add(b);
 
 		visited_block.add(b);
-
-		steps++;
 
 		if (dir == 1) {
 			solve(x, y - 1, 1);
