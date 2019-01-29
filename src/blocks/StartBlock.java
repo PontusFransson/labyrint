@@ -10,4 +10,5 @@ public class StartBlock extends Block {
 		r.setFill(Color.GREEN);
 		this.getChildren().add(r);
 	}
+	
 }

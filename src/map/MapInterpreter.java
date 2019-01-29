@@ -3,18 +3,14 @@ package map;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-import com.sun.org.apache.xpath.internal.compiler.OpCodes;
-
 import blocks.Block;
 import blocks.ClosedBlock;
 import blocks.GoalBlock;
 import blocks.OpenBlock;
 import blocks.StartBlock;
-import javafx.scene.paint.Color;
 
 public class MapInterpreter {
-
+	static int id =1;
 	public static Map interpretMap(File f) {
 		try {
 			Scanner fileReader = new Scanner(f);
@@ -36,7 +32,8 @@ public class MapInterpreter {
 						map.setStartX(col);
 						map.setStartY(row);
 					} else if (c == 'G') {
-						b = new GoalBlock();
+						b = new GoalBlock(id);
+						id++;
 					} else {
 						b = new OpenBlock();
 					}

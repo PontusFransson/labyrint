@@ -47,6 +47,31 @@ public class Map extends Group {
 		return this.map.get(y).get(x);
 	}
 
+	public int row(Block b) {
+		for (int i = 0; i < map.size(); i++) {
+			if (map.get(i).contains(b)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public int col(Block b) {
+		for (ArrayList<Block> row : map) {
+			for (Block block : row) {
+
+				if (block == b) {
+
+					return row.indexOf(block);
+
+				}
+
+			}
+		}
+
+		return -1;
+	}
+
 	public double getWidth() {
 		return map.get(0).size() * Block.SIZE;
 	}
@@ -62,5 +87,4 @@ public class Map extends Group {
 	public void setStartY(int y) {
 		this.startY = y;
 	}
-
 }
